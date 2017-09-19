@@ -6,10 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public counter: number = 10;
+  public counter = 10;
   public final: number ;
+  OnIt() {
+  }
   counterchange(data: number) {
-         this.final = data;
+         this.counter = data;
          console.log(`${data}`);
   }
 }
