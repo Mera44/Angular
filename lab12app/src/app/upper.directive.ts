@@ -3,14 +3,12 @@ import { Directive, ElementRef, Renderer, HostListener, HostBinding, Input, OnIn
 @Directive({
   selector: '[appUpper]'
 })
-export class UpperDirective {
+export class UpperDirective implements OnInit{
 
   constructor(private e: ElementRef, private r: Renderer) {
   
     }
-    ngOnInit(){
-      let t = this.e.nativeElement.innerHTML;
-      
-    this.r.setElementProperty(this.e.nativeElement, 'innerHtml', t.toUpperCase());
+    ngOnInit() { 
+    this.r.setElementStyle(this.e.nativeElement, 'text-transform', 'uppercase');
     }
 }
