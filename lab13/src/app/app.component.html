@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+
+          <h1>Welcome To MUM</h1>
+          <hr>
+           <!-- 
+          without exact:true it will be added to all routes as they all start with / 
+          <a [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+          -->
+          <a [routerLink]="['']">HomePage</a> |
+          <a [routerLink]="['students']"> Students </a> |
+         
+          <hr>
+          <router-outlet></router-outlet>
