@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { StudentsComponent } from './student.component';
 import { DbService } from './db.service';
 import { ProfileComponent } from './profile.component';
+import { MyCanActivateGuard } from './guards/mycanactivate.guard';
+import { MyCanDeactivateGuard } from './guards/mycandeactivate.guard';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import { ProfileComponent } from './profile.component';
     BrowserModule,
     myRoutes
   ],
-  providers: [DbService],
+  providers: [DbService, MyCanActivateGuard, MyCanDeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
