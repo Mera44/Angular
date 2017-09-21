@@ -19,19 +19,18 @@ export class ProfileComponent  {
   data = {};
   final = {};
   id: number;
-  constructor(DbService: DbService , private activatedRoute: ActivatedRoute,private router: Router) {
+  constructor(DbService: DbService , private activatedRoute: ActivatedRoute, private router: Router) {
     this.data = DbService.getData();
      activatedRoute.params.subscribe(
       (param: any) => this.id = param['id']);
    this.final = this.data[this.id - 1];
      }
   done = false;
-  
-  
+
     onNavigate() {
         this.router.navigate(['/']);
     }
-  
+
     canDeactivate(): Observable<boolean> | boolean {
             if (!this.done) {
                 return confirm('Do you want to leave?');
