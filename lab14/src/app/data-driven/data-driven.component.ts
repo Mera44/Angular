@@ -21,12 +21,10 @@ export class DataDrivenComponent {
   constructor(private formBuilder: FormBuilder, DataService: DataService) {
     this.db = DataService;
     this.myForm = formBuilder.group({
-      'userData': formBuilder.group({
+      //'userData': formBuilder.group({
         'username': ['', [Validators.required]],
-        'email': ['', [
-          Validators.required,
-        ]]
-      }),
+        'email': ['', [ Validators.required]],
+     // }),
       'post': ['', Validators.maxLength(10)],
     });
 
@@ -41,14 +39,10 @@ export class DataDrivenComponent {
   ongetData() {
     this.db.getData().subscribe(
       res => {
-        this.myForm.controls['UserData'].parent['email'] = res.json().email;
+        this.myForm.setValue({'username': res.json().username, 'email': res.json().email, 'post': res.json().name});
       } 
     );
-  //console.log(this.userinfo.name);
- // this.myForm.controls.email = this.userinfo.email;
- //this.myForm.controls.post = this.userinfo.name;
-  
-  
+
   }
 
 }

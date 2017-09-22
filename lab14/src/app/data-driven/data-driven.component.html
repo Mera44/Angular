@@ -4,14 +4,14 @@
 
 
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-  <div formGroupName="userData">
+  <!-- <div formGroupName="userData"> -->
     <div class="form-group">
       <label for="username"> Name</label>
       <input type="text"
              class="form-control"
              id="username"
              formControlName="username">
-             <div style="color:red" *ngIf="!myForm.controls['userData'].controls['username'].valid">
+             <div style="color:red" *ngIf="!myForm.controls['username'].valid">
               Required 
             </div>
     </div>
@@ -21,15 +21,15 @@
              class="form-control"
              id="email"
              formControlName="email">
-      <div style="color:red" *ngIf="!myForm.controls['userData'].controls['email'].valid">
+      <div style="color:red" *ngIf="!myForm.controls['email'].valid">
              Required 
       </div>
     </div>
-  </div>
+  <!-- </div> -->
   <div class="Post">
     <h3>Post</h3>
     <div class="form-group">
-      <textarea rows="4" cols="50"> </textarea>
+      <textarea formControlName="post"rows="4" cols="50"> </textarea>
     </div>
   </div>
   <button type="button" class="btn btn-default" (click)="ongetData()">GetData</button>
