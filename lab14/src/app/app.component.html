@@ -1,0 +1,31 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div formGroupName="userData">
+    <div class="form-group">
+      <label for="username"> Name</label>
+      <input type="text"
+             class="form-control"
+             id="username"
+             formControlName="username">
+    </div>
+    <div class="form-group">
+      <label for="email">E-Mail</label>
+      <input type="text"
+             class="form-control"
+             id="email"
+             formControlName="email">
+      <div *ngIf="!myForm.controls['userData'].controls['email'].valid">
+        Invalid Email
+      </div>
+    </div>
+  </div>
+  <div class="Post">
+    <h3>Post</h3>
+    <div class="form-group"
+      <textarea rows="4" cols="50"> </textarea>
+    </div>
+  </div>
+  <button type="button" class="btn btn-default" (click)="onAddHobby()">GetData</button>
+  <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>
+</form>
+
